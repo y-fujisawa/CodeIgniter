@@ -11,9 +11,15 @@ class SyscheckClass
      * doCheck
      *
      * @params none
-     * @return array
+     * @return array $data
      */
     public function doCheck()
     {
+        try {
+            $this->c->load->model('Syscheck_model', 'Syscheck', true);
+            retrun $this->c->Syscheck->getNow();
+        } catch (Exception $e) {
+            throw new Exception ($e->getMessage());
+        }
     }
 }
