@@ -12,11 +12,11 @@ class Syscheck extends CI_Controller
     {
         try {
             $this->load->library('SyscheckClass');
-            $data = $this->SyscheckClass->doCheck();
+            $now = $this->SyscheckClass->doCheck()->now;
             
             $render = 
                 array(
-                    'data' => $data[0],
+                    'now' => $now,
                 );
             
             $this->load->view('syscheck', $render)
