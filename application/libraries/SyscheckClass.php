@@ -4,7 +4,7 @@ class SyscheckClass
     protected $c;
     public function __construct(&$c)
     {
-        $this->c = $c;
+        $this->c = $c['controller'];
     }
     
     /**
@@ -17,7 +17,7 @@ class SyscheckClass
     {
         try {
             $this->c->load->model('Syscheck_model', 'Syscheck', true);
-            retrun $this->c->Syscheck->getNow();
+            return $this->c->Syscheck->getNow();
         } catch (Exception $e) {
             throw new Exception ($e->getMessage());
         }
